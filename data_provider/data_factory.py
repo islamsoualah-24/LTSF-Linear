@@ -15,6 +15,10 @@ def data_provider(args, flag):
     timeenc = 0 if args.embed != 'timeF' else 1
     train_only = args.train_only
 
+   def __len__(self):
+       length = len(self.data_x) - self.seq_len - self.pred_len + 1
+       return abs(length)
+
     if flag == 'test':
         shuffle_flag = False
         drop_last = False
@@ -43,7 +47,7 @@ def data_provider(args, flag):
         freq=freq,
         train_only=train_only
     )
-    print(flag, len(data_set))
+    print(flag, __len__(data_set))
     data_loader = DataLoader(
         data_set,
         batch_size=batch_size,
