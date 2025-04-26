@@ -15,10 +15,6 @@ def data_provider(args, flag):
     timeenc = 0 if args.embed != 'timeF' else 1
     train_only = args.train_only
 
-   def __len__(self):
-       length = len(self.data_x) - self.seq_len - self.pred_len + 1
-       return abs(length)
-
     if flag == 'test':
         shuffle_flag = False
         drop_last = False
