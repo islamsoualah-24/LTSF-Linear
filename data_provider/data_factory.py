@@ -43,7 +43,7 @@ def data_provider(args, flag):
         freq=freq,
         train_only=train_only
     )
-    print(flag, __len__(data_set))
+    print(flag, len(data_set))
     data_loader = DataLoader(
         data_set,
         batch_size=batch_size,
